@@ -3,14 +3,16 @@
   <div class="panel-heading">
   	<h4><span id="bigL">L</span> - Sent documents</h4>
   </div>
+  <!--
   <div class="panel-body">
     <p>
     	These are sent documents
     </p>
   </div>
-
+  -->
   <!-- Table -->
   <table class="table table-striped table-hover">
+    <!--
     <thead>
     	<tr>
 	    	<th>#</th>
@@ -20,6 +22,7 @@
 	    	<th>Status</th>
     	</tr>
     </thead>
+    -->
     <tbody>
     <?php 	
 	//resultset along with the connection string
@@ -37,8 +40,8 @@
     				<span class="glyphicon glyphicon-list-alt"></span> <?php echo $row['doc_type_name']; ?>
     			</a>
     		</td>
-    		<td><?php echo $row['firstname'].' '.$row['lastname']; ?></td>
-    		<td><?php echo $row['deadline']; ?></td>
+    		<td class="small">To: <?php echo $row['firstname'].' '.$row['lastname']; ?></td>
+    		<td><?php echo $row['send_date']; ?></td>
     		<td><?php echo $row['doc_status_name']; ?></td>
     	</tr>
     	<?php } //endwhile ?>

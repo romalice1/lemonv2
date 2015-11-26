@@ -3,14 +3,16 @@
   <div class="panel-heading">
   	<h4><span id="bigL">L</span> - Closed documents</h4>
   </div>
+  <!--
   <div class="panel-body">
     <p>
     	These are closed documents
     </p>
   </div>
-
+  -->
   <!-- Table -->
   <table class="table table-striped table-hover">
+    <!--
     <thead>
     	<tr>
     		<th>#</th>
@@ -19,6 +21,7 @@
 	    	<th>Status</th>
     	</tr>
     </thead>
+    -->
     <tbody>
     <?php 	
 	//resultset along with the connection string
@@ -33,12 +36,12 @@
     		<td class="text-capitalize">
     			<!-- This trigger is controlled by a javascript function in 'app/assets/js/other-scripts.js' -->
     			<!-- The popup modal is writen at the end of index.php ( of this content page) -->
-    			<a style="cursor:pointer;" title="Click for Details" onclick="documentDetails('<?php echo $row['document_id']; ?>', 'received');" data-toggle="modal" data-target="#DocumentDetailsModal">
+    			<a style="cursor:pointer;" title="Click for Details" onclick="documentDetails('<?php echo $row['document_id']; ?>', 'closed');" data-toggle="modal" data-target="#DocumentDetailsModal">
     				<span class="glyphicon glyphicon-list-alt"></span> <?php echo $row['doc_type_name']; ?>
     			</a>
     		</td>
-    		<td><?php echo $row['date']; ?></td>
-    		<td><?php echo $row['doc_status_name']; ?></td>
+    		<td class="small"><?php echo $row['date']; ?></td>
+    		<td class="text-warning"><?php echo $row['doc_status_name']; ?></td>
     	</tr>
     	<?php } //endwhile ?>
     </tbody>

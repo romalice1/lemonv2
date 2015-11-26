@@ -197,13 +197,14 @@ class Document{
 			$sql = "SELECT `box`.*, `document`.*, `doc_type`.`doc_type_name`, date_format(DATE_ADD(`date_created`, INTERVAL `doc_type`.`doc_type_duration` DAY), '%D %M %Y') AS deadline
 			FROM `document`,`box`,`doc_type` 
 			WHERE `doc_receiver_user_id`='$user_id' 
-				AND `document`.`document_id`=`box`.`document_id` AND `doc_type`.`doc_type_id` = `document`.`doc_type_id` AND `closed` = 'n'";
+				AND `document`.`document_id`=`box`.`document_id` AND `doc_type`.`doc_type_id` = `document`.`doc_type_id` AND `closed` = 'n'
+				ORDER BY `box`.`date` DESC";
 			
 			$result = mysqli_query($conn, $sql);
 		}elseif($view=='sent'){
 	
 			// Get documents #sent by $user_id
-			$sql = "SELECT `document`.*, `box`.*, `user`.`firstname`, `user`.`lastname`, `doc_status_name`, `doc_type_name`, DATE_ADD(`date_created`, INTERVAL `doc_type`.`doc_type_duration` DAY) AS deadline 
+			$sql = "SELECT `document`.*, `box`.*, `user`.`firstname`, `user`.`lastname`, `doc_status_name`, `doc_type_name`, `box`.`date` AS send_date 
 			FROM `document`,`box`, `user`, `document_status`, `doc_type`
 			WHERE `doc_sender_user_id`='$user_id' AND `doc_sender_user_id`=`user_id` AND `document`.`document_id`=`box`.`document_id` AND `document_status`.`doc_status_id` = `document`.`doc_status_id` AND `doc_type`.`doc_type_id`=`document`.`doc_type_id`";
 	

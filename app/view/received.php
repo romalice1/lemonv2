@@ -3,22 +3,15 @@
   <div class="panel-heading">
   	<h4><span id="bigL">L</span> - Received documents</h4>
   </div>
+  <!--
   <div class="panel-body">
     <p>
     	These are received documents
     </p>
   </div>
-  
+  -->
   <!-- Table -->
   <table class="table table-striped table-hover">
-    <thead>
-    	<tr>
-	    	<th>#</th>
-	    	<th>Document</th>
-	    	<th>Deadline</th>
-	    	<th>Date</th>
-    	</tr>
-    </thead>
     <tbody>
 	<?php 	
 	//resultset along with the connection string
@@ -41,8 +34,8 @@
     				<span class="glyphicon glyphicon-list-alt"></span> <?php echo $row['doc_type_name']; ?>
     			</a>
     		</td>
-    		<td class="text-warning"><?php if($row['deadline'] == null ){ echo "No deadline"; } else { echo $row['deadline']; }?></td>
-    		<td><?php echo $row['date']?></td>
+    		<td class="small"><?php echo $row['date']?></td>
+    		<td class="text-warning">Exp. <?php if($row['deadline'] == null ){ echo "Undefined"; } else { echo $row['deadline']; }?></td>
     	</tr>
     	<?php } //endwhile ?>
     </tbody>

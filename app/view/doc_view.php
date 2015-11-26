@@ -68,14 +68,17 @@ if(isset($alert['success'])):
 			<div class="col-xs-4">
 				<a class="btn" target="new" href="<?php echo $details['document_path']; ?>"><span class="glyphicon glyphicon-list-alt"></span> Open</a>
 			</div>
-			<div class="col-sm-4">
+			<!-- Can not forward if document case is closed. -->
+			<?php if($_GET['show']=='closed'){ $css='sr-only';}else{ $css=''; } ?>
+			<div class="col-sm-4 <?php echo $css; ?>">
 				<a class="btn"><span class="glyphicon glyphicon-share-alt"></span> Forward</a>
 			</div>
+			
 		</div>
 	</div>
 	<div class="panel-body">
 		<div class="row">
-			<div id="left-hand" class="col-sm-6" style="border-right:1px solid #eeeeee;">
+			<div id="left-hand" class="col-sm-6">
 				<h3 class="text-muted">Document Details</h3>
 				<div class="row">
 					<label class="col-sm-5"> Document type </label>
@@ -87,7 +90,7 @@ if(isset($alert['success'])):
 					<label class="col-sm-5">Received on </label>
 					<div class="col-sm-7 text-capitalize">
 						<?php echo $details['date'];?>
-					</div>
+					</div><p/>
 				</div>
 				<div class="row">
 					<label class="col-sm-5">Created by </label>
@@ -120,7 +123,7 @@ if(isset($alert['success'])):
 				if(@$_GET['show'] == 'received')
 				{
 			?>
-				<div id="right-hand" class="col-sm-6 text-center">
+				<div id="right-hand" class="col-sm-6 text-center" style="border-left:1px solid #eeeeee;">
 					<h3 class="text-muted">Update Status</h3>
 					<form class="form-horizontal" method="POST" onsubmit="return updateStatus('<?php echo $details['document_id']; ?>');">
 						
