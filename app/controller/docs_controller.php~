@@ -1,0 +1,45 @@
+<?php
+/***** A file to take care of documents operations***********/
+
+/* The $conn variable comes from app/init.php called from header.php */
+
+// NEW DOCUMENTS
+
+class Task{
+	public static function get_tasks( $conn ){
+		$sql = "SELECT * FROM `tasks`";
+		$result = mysqli_query($conn, $sql);
+	
+		echo "Here".$result;
+	}
+}
+
+function new_doc(){
+	return true;
+}
+
+// Received documents
+function received($conn){
+	$sql = "SELECT * FROM `document`";
+	$result = mysqli_query($conn, $sql);
+	
+	return $result;
+}
+
+// Sent documents
+function sent($conn){
+	$sql = "SELECT * FROM `document`";
+	$result = mysqli_query($conn, $sql);
+	
+	return $result;
+}
+
+// Closed documents
+function closed_docs($conn){
+	$sql = "SELECT * FROM `document` WHERE 1";
+	$result = mysqli_query($conn, $sql);
+	
+	return $result;
+}
+
+?>

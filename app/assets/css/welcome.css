@@ -1,0 +1,27 @@
+#bigL{
+	border:1px solid #4CAE4C;
+	border-radius:3px;
+	background:#5CB85C;
+	padding:0px 5px 0px;
+	color:#fff;
+	height:30px;
+}
+.navbar a{
+	color:#999;
+}
+.navbar a:hover{
+	color:#fff;
+}
+.carousel .jumbotron{
+	background:none;
+}
+.carousel > .carousel-inner > img{
+	height:30px;
+}
+#footer{
+	margin-bottom:0px;
+	margin-top:10px;
+	border-radius:0px;
+	padding-top:2em;
+	padding-bottom:2em;
+}

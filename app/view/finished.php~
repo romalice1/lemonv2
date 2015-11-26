@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Closed documents</div>
+  <div class="panel-body">
+    <p>
+    	These are closed documents
+    </p>
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+    	<tr>
+	    	<th>Document</th>
+	    	<th>Date</th>
+	    	<th>Status</th>
+    	</tr>
+    <thead>
+    <tbody>
+    	<tr>
+    		<td></td>
+    		<td></td>
+    		<td></td>
+    	</tr>
+    </tbody>
+  </table>
+</div>

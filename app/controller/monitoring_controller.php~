@@ -1,0 +1,18 @@
+<?php
+/***** A file to take care of all monitoring operations***********/
+/** Author Romalice Ishimwe **/
+
+/* The $conn variable comes from app/init.php called from header.php */
+
+// All documents
+function documents($conn){
+	$sql = "SELECT * FROM `document`";
+	$result = mysqli_query($conn, $sql);
+	
+	return $result;
+}
+
+// All tasks
+function tasks(){
+
+}

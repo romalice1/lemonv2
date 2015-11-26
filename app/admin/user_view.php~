@@ -1,0 +1,60 @@
+<?php
+	//Getting user information
+	$user = $admin->get_user_byId($conn, $_GET['uid']);
+?>
+<a href="?view=admin"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back to all users</a>
+<div class="media jumbotron">
+	<div class="media-left">
+		<img class="img-circle media-object" src="data/user_data/rom-img.jpg" alt="Rommy" id="user_img" style="height:100px;width:100px;"> 
+    	</div>
+	<div class="media-body text-capitalize">
+		<h2 class="media-heading"><?php echo $user['firstname'].' '.$user['lastname'];  ?></h2>
+			<b>Role:</b> <?php echo $user['role_name'];?><br/>
+			<b>Branch:</b> <?php echo $user['branch_name'];?><br/>
+			<span class="glyphicon glyphicon-earphone"></span> <?php echo $user['phone'];?><br/>
+			<b><span class="glyphicon glyphicon-envelope"></span></b> <span class="text-lowercase"><a href="mailto:<?php echo $user['email'];?>"><?php echo $user['email'];?></a></span><br/>
+	</div>
+</div>
+ <form class="form-inline" action="?view=admin" method="POST">	
+	<div class="form-group">
+		<label for="inputPhone" class="col-sm-4 control-label">Update Role</label>
+		<div class="col-sm-2">
+			<select name="role_id">
+				<?php 
+					$role = $admin->get_role($conn);
+					while($row = mysqli_fetch_array($role)):
+					if($row['role_id']=='003'): //anonymous
+					else:
+				?>
+				<option value="<?php echo $row['role_id'];?>" <?php if($row['role_id']==$user['role_id']){ echo "selected"; }?> >
+					<?php echo $row['role_name'];?>
+				</option>
+				<?php endif; endwhile; ?>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputPhone" class="col-sm-2 control-label">Update Branch</label>
+		<div class="col-sm-10">
+			<select name="branch_id">
+				<?php 
+					$branch = $admin->get_branch($conn);
+					while($row = mysqli_fetch_array($branch)):
+				?>
+				<option value="<?php echo $row['branch_id'];?>" <?php if($row['branch_id']==$user['branch_id']){ echo "selected"; }?> >
+					<?php echo $row['branch_name'];?>
+				</option>
+				<?php endwhile; ?>
+			</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<!-- hidden values -->
+		<input type="hidden" name="update_user">
+		<input type="hidden" name="user_id" value="<?php echo $user['user_id'];?>" >
+		
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,16 @@
+<?php
+	function index_pages( $index, $value){
+		if( isset( $REQUEST['.$index'] ) ){
+				switch( $REQUEST['$index'] ){
+					case "new": require("view/new_doc.php"); break;
+					case "received": require("view/received.php"); break;
+					case "sent": require("view/sent.php"); break;
+					case "closed": require("view/closed.php"); break;
+					case "settings": require("settings.php"); break;
+					case "monitoring": require("view/monitor.php"); break;
+					case "admin": require("admin/home.php"); break;
+					default: require("view/received.php");
+				}
+			}
+	}
+?>

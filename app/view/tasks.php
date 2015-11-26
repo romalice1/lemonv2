@@ -1,0 +1,37 @@
+<div class="panel panel-info">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h4><span id="bigL">L</span> - Tasks</h4></div>
+  <div class="panel-body">
+    <p>
+    	Filter by
+    </p>
+  </div>
+  <?php $result = Task::get_tasks($conn);?>
+  <!-- Table -->
+  <table class="table">
+    <thead>
+    	<tr>
+	    	<th>#</th>
+	    	<th>Task</th>
+	    	<th>Deadline</th>
+	    	<th>Creator</th>
+    	</tr>
+    </thead>
+    <tbody>
+	<?php 	
+	//resultset along with the connection string
+	
+	$row_count = 0; //initializing row count
+	while( $row= mysqli_fetch_array( $result ) ){
+		$row_count += 1;
+	?>
+    	<tr>
+    		<td><?php echo $row_count;?></td>
+    		<td>.</td>
+    		<td>.</td>
+    		<td>.</td>
+    	</tr>
+    	<?php } //endwhile ?>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,11 @@
+<?php
+/***** A file to take care of documents operations***********/
+
+// Received documents
+function received(){
+	$sql = "SELECT * FROM `function`";
+	$result = mysqli_query($dfh, $sql);
+	
+	return $result;
+}
+?>

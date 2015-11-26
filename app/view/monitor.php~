@@ -1,0 +1,78 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+  	<h4>Monitor Mode</h4>
+  </div>
+  <div class="panel-body">
+	<ul class="nav nav-pills text-right">
+	  <li role="presentation" <?php if($_GET['tab']=='documents'){ echo "class='active'";}?> ><a href="?view=monitoring&tab=documents">Documents</a></li>
+	  <li role="presentation" <?php if($_GET['tab']=='tasks'){ echo "class='active'";}?> ><a href="?view=monitoring&tab=tasks">Tasks</a></li>
+	</ul>
+  </div>
+  
+  <!-- Viewing documents -->
+  <?php if($_GET['tab']!='tasks'){ ?>
+  <!-- Table -->
+  <table class="table">
+    <thead>
+    	<tr>
+    		<th>#</th>
+	    	<th>Document</th>
+	    	<th>Deadline</th>
+	    	<th>Status</th>
+    	</tr>
+    </thead>
+    <tbody>
+    <?php 	
+	//resultset along with the connection string
+	$result  = Document::get_documents($conn, $_GET['view'], 'uid');	
+	$row_count = 0; //initializing row count
+	while( $row= mysqli_fetch_array( $result ) ){
+		$row_count += 1;
+    ?>
+    	<tr>
+    		<td><?php echo $row_count; ?></td>
+    		<td></td>
+    		<td></td>
+    		<td></td>
+    	</tr>
+    	<?php } //endwhile ?>
+    </tbody>
+  </table>
+  <?php } // end if for viewing documents ?>
+  <!--- Done viewing documents ---------->
+  
+  <!-- Viewing tasks -->
+  <?php if($_GET['tab']=='tasks'){ ?>
+  <!-- Table -->
+  <table class="table">
+    <thead>
+    	<tr>
+    		<th>#</th>
+	    	<th>Task</th>
+	    	<th>Deadline</th>
+	    	<th>Status</th>
+	    	<th>Creator</th>
+    	</tr>
+    </thead>
+    <tbody>
+    <?php 	
+	//resultset along with the connection string
+	$result  = Document::get_documents($conn, $_GET['view'], 'uid');	
+	$row_count = 0; //initializing row count
+	while( $row= mysqli_fetch_array( $result ) ){
+		$row_count += 1;
+    ?>
+    	<tr>
+    		<td><?php echo $row_count; ?></td>
+    		<td></td>
+    		<td></td>
+    		<td></td>
+    	</tr>
+    	<?php } //endwhile ?>
+    </tbody>
+  </table>
+  <?php } // end displaying all tasks ?>
+  <!-- Done viewing tasks -->
+  
+</div>

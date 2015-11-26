@@ -1,0 +1,152 @@
+% This is the AfriNIC Whois server.
+
+% Note: this output has been filtered.
+%       To receive output for a database update, use the "-B" flag.
+
+% Information related to '197.243.0.0 - 197.243.127.255'
+
+% No abuse contact registered for 197.243.0.0 - 197.243.127.255
+
+inetnum:        197.243.0.0 - 197.243.127.255
+netname:        BSC
+descr:          Broadband Systems Corporation
+country:        RW
+org:            ORG-BSC1-AFRINIC
+admin-c:        EMK1-AFRINIC
+tech-c:         EMK1-AFRINIC
+status:         ALLOCATED PA
+mnt-by:         AFRINIC-HM-MNT
+mnt-lower:      BSC-MNT
+source:         AFRINIC # Filtered
+parent:         197.0.0.0 - 197.255.255.255
+
+organisation:   ORG-BSC1-AFRINIC
+org-name:       Broadband Systems Corporation
+org-type:       LIR
+country:        RW
+address:        2F,TelecomHouse,BlvDeL'Umuganda
+address:        Kacyiru-Kigali 7229
+phone:          +250788187408
+phone:          +250788187408
+admin-c:        EMK1-AFRINIC
+tech-c:         EMK1-AFRINIC
+mnt-ref:        AFRINIC-HM-MNT
+mnt-ref:        BSC-MNT
+mnt-by:         AFRINIC-HM-MNT
+source:         AFRINIC # Filtered
+
+person:         E M Kayihura
+nic-hdl:        EMK1-AFRINIC
+address:        P O Box 1332
+address:        Kigali
+address:        Rwanda
+address:        Kigali
+address:        Rwanda
+phone:          +250 78830 9212
+source:         AFRINIC # Filtered
+
+
+
+
+Starting Nmap 6.47 ( http://nmap.org ) at 2015-07-16 12:55 CAT
+Nmap scan report for 197.243.19.94
+Host is up (0.050s latency).
+Not shown: 997 filtered ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+443/tcp  open  https
+8080/tcp open  http-proxy
+
+Nmap done: 1 IP address (1 host up) scanned in 24.34 seconds
+% This is the RIPE Database query service.
+% The objects are in RPSL format.
+%
+% The RIPE Database is subject to Terms and Conditions.
+% See http://www.ripe.net/db/support/db-terms-conditions.pdf
+
+% Information related to '197.0.0.0 - 197.255.255.255'
+
+% No abuse contact registered for 197.0.0.0 - 197.255.255.255
+
+inetnum:        197.0.0.0 - 197.255.255.255
+netname:        NON-RIPE-NCC-MANAGED-ADDRESS-BLOCK
+descr:          IPv4 address block not managed by the RIPE NCC
+remarks:        ------------------------------------------------------
+remarks:
+remarks:        You can find the whois server to query, or the
+remarks:        IANA registry to query on this web page:
+remarks:        http://www.iana.org/assignments/ipv4-address-space
+remarks:
+remarks:        You can access databases of other RIR's at:
+remarks:
+remarks:        AFRINIC (Africa)
+remarks:        http://www.afrinic.net/ whois.afrinic.net
+remarks:
+remarks:        APNIC (Asia Pacific)
+remarks:        http://www.apnic.net/ whois.apnic.net
+remarks:
+remarks:        ARIN (Northern America)
+remarks:        http://www.arin.net/  whois.arin.net
+remarks:
+remarks:        LACNIC (Latin America and the Carribean)
+remarks:        http://www.lacnic.net/ whois.lacnic.net
+remarks:
+remarks:        ------------------------------------------------------
+country:        EU # Country is really world wide
+org:            ORG-IANA1-RIPE
+admin-c:        IANA1-RIPE
+tech-c:         IANA1-RIPE
+status:         ALLOCATED UNSPECIFIED
+mnt-by:         RIPE-NCC-HM-MNT
+mnt-lower:      RIPE-NCC-HM-MNT
+mnt-routes:     RIPE-NCC-RPSL-MNT
+changed:        hostmaster@ripe.net 20120521
+created:        2014-11-07T14:15:08Z
+last-modified:  2014-11-07T14:15:08Z
+source:         RIPE
+
+organisation:   ORG-IANA1-RIPE
+org-name:       Internet Assigned Numbers Authority
+org-type:       IANA
+address:        see http://www.iana.org
+remarks:        The IANA allocates IP addresses and AS number blocks to RIRs
+remarks:        see http://www.iana.org/numbers
+e-mail:         bitbucket@ripe.net
+admin-c:        IANA1-RIPE
+tech-c:         IANA1-RIPE
+mnt-ref:        RIPE-NCC-HM-MNT
+mnt-by:         RIPE-NCC-HM-MNT
+changed:        bitbucket@ripe.net 20040417
+changed:        hostmaster@ripe.net 20130722
+created:        2004-04-17T09:57:29Z
+last-modified:  2013-07-22T12:03:42Z
+source:         RIPE
+
+role:           Internet Assigned Numbers Authority
+address:        see http://www.iana.org.
+e-mail:         bitbucket@ripe.net
+admin-c:        IANA1-RIPE
+tech-c:         IANA1-RIPE
+nic-hdl:        IANA1-RIPE
+remarks:        For more information on IANA services
+remarks:        go to IANA web site at http://www.iana.org.
+mnt-by:         RIPE-NCC-MNT
+changed:        bitbucket@ripe.net 20010411
+created:        1970-01-01T00:00:00Z
+last-modified:  2001-09-22T09:31:27Z
+source:         RIPE
+
+% Information related to '197.243.16.0/20AS37228'
+
+route:          197.243.16.0/20
+descr:          BSC Second /20
+origin:         AS37228
+changed:        mosesn@rdb.rw 20120125
+created:        2012-01-25T15:27:10Z
+last-modified:  2012-01-25T15:55:24Z
+source:         RIPE
+mnt-by:         NM64858-MNT
+
+% This query was served by the RIPE Database Query Service version 1.80 (DB-4)
+
+
