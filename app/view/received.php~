@@ -22,6 +22,11 @@
     <tbody>
 	<?php 	
 	//resultset along with the connection string
+	
+	//In case $_GET is not provided
+	if(!$_GET['view']){
+		$_GET['view'] = "received";
+	}
 	$result  = Document::get_documents($conn, $_GET['view'], $_SESSION['user_id']);
 	$row_count = 0; //initializing row count
 	while( $row= mysqli_fetch_array( $result ) ){
@@ -32,7 +37,7 @@
     		<td class="text-capitalize">
     			<!-- This trigger is controlled by a javascript function in 'app/assets/js/other-scripts.js' -->
     			<!-- The popup modal is writen at the end of index.php ( of this content page) -->
-    			<a style="cursor:pointer;" title="Click for Details" onclick="documentDetails('<?php echo $row['document_id']; ?>');" data-toggle="modal" data-target="#DocumentDetailsModal">
+    			<a style="cursor:pointer;" title="Click for Details" onclick="documentDetails('<?php echo $row['document_id']; ?>', 'received');" data-toggle="modal" data-target="#DocumentDetailsModal">
     				<span class="glyphicon glyphicon-list-alt"></span> <?php echo $row['doc_type_name']; ?>
     			</a>
     		</td>

@@ -22,6 +22,11 @@
     <tbody>
 	<?php 	
 	//resultset along with the connection string
+	
+	//In case $_GET is not provided
+	if(!@$_GET['view']){
+		$_GET['view'] = "received";
+	}
 	$result  = Document::get_documents($conn, $_GET['view'], $_SESSION['user_id']);
 	$row_count = 0; //initializing row count
 	while( $row= mysqli_fetch_array( $result ) ){

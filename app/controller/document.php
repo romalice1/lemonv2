@@ -193,7 +193,7 @@ class Document{
 			$result = mysqli_query($conn, $sql);
 		}elseif( $view=='received'){
 			
-			//Get document received by $user_id
+			//Get document #received by $user_id
 			$sql = "SELECT `box`.*, `document`.*, `doc_type`.`doc_type_name`, date_format(DATE_ADD(`date_created`, INTERVAL `doc_type`.`doc_type_duration` DAY), '%D %M %Y') AS deadline
 			FROM `document`,`box`,`doc_type` 
 			WHERE `doc_receiver_user_id`='$user_id' 
@@ -202,7 +202,7 @@ class Document{
 			$result = mysqli_query($conn, $sql);
 		}elseif($view=='sent'){
 	
-			// Get documents sent by $user_id
+			// Get documents #sent by $user_id
 			$sql = "SELECT `document`.*, `box`.*, `user`.`firstname`, `user`.`lastname`, `doc_status_name`, `doc_type_name`, DATE_ADD(`date_created`, INTERVAL `doc_type`.`doc_type_duration` DAY) AS deadline 
 			FROM `document`,`box`, `user`, `document_status`, `doc_type`
 			WHERE `doc_sender_user_id`='$user_id' AND `doc_sender_user_id`=`user_id` AND `document`.`document_id`=`box`.`document_id` AND `document_status`.`doc_status_id` = `document`.`doc_status_id` AND `doc_type`.`doc_type_id`=`document`.`doc_type_id`";
@@ -210,9 +210,12 @@ class Document{
 			$result = mysqli_query($conn, $sql);
 		}elseif( $view=='closed' ){
 			
-			// Get all docuements closed by $user_id
-			$sql = "SELECT * FROM `document`,`box` 
-			WHERE `closedby_user_id`='$user_id' AND `closed`='y' AND `document`.`document_id`=`box`.`document_id`";
+			// Get all documents #closed by $user_id				
+			$sql = "SELECT b.*, d.*, dt.`doc_type_name`, ds.`doc_status_name`, date_format(`date_closed`, '%D %M %Y') AS date
+			FROM `document` d,`box` b,`doc_type` dt, `document_status` ds
+			WHERE `doc_receiver_user_id`='$user_id' 
+				AND d.`document_id`= b.`document_id` AND dt.`doc_type_id` = d.`doc_type_id` AND ds.`doc_status_id` = d.`doc_status_id` AND `closed` = 'y'
+				ORDER BY `date_closed` Desc";
 			
 			$result = mysqli_query($conn, $sql);
 		}
