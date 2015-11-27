@@ -85,7 +85,7 @@
 					<div class="collapse" id="changePasswd">
 					  <div class="well">
 						<div class="input-group">
-							<div class="input-group-addon"><span class="glyphicon glyphicon-">***</span></div>
+							<div class="input-group-addon"><span class="glyphicon glyphicon-">*</span></div>
 							<input type="password" name="oldPasswd" class="form-control" placeholder="Old Password" />
 						</div>
 						<div class="input-group">

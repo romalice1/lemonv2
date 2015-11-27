@@ -30,6 +30,18 @@
 			
 	$details = mysqli_fetch_array( mysqli_query($conn, $sql) );
 	
+	// Geting current doc. location #manager mode only
+	if($_GET['show']=='manager'){
+		$document_id = $details['document_id'];
+		$sql = "SELECT u.`firstname`, u.`lastname`, u.`email`, u.`phone`, r.`role_name`
+				FROM `box` b, `user` u, `role` r 
+				WHERE b.`document_id`='$document_id' AND b.`doc_receiver_user_id`=u.`user_id` AND r.`role_id`=u.`role_id`
+				ORDER BY b.`date` DESC
+				LIMIT 0,1 ";
+		
+		$doc_location = mysqli_fetch_array( mysqli_query($conn, $sql) );
+	}
+	
 	// Fetching documemnt statuses for action listing
 	$action  = $admin->get_status($conn, $intranet['intranet_id']);
 ?>
@@ -80,18 +92,18 @@ if(isset($alert['success'])):
 		<div class="row">
 			<div id="left-hand" class="col-sm-6">
 				<h3 class="text-muted">Document Details</h3>
-				<dl>
-					<dt> Document type </dt>
-					<dd class="text-capitalize">
+				<div class="row">
+					<label class="col-sm-5"> Document type </label>
+					<div class="col-sm-7 text-capitalize">
 						<?php echo $details['doc_type_name'];?>
-					</dd>
-			
-				
-					<dt>Received on </dt>
-					<dd class="text-capitalize">
+					</div>
+				</div>
+				<div class="row">
+					<label class="col-sm-5">Received on </label>
+					<div class="col-sm-7 text-capitalize">
 						<?php echo $details['date'];?>
-					</dd>
-				</dl>
+					</div><p/>
+				</div>
 				<div class="row">
 					<label class="col-sm-5">Created by </label>
 					<div class="col-sm-7 text-capitalize">
@@ -107,15 +119,39 @@ if(isset($alert['success'])):
 				<div class="row">
 					<label class="col-sm-5">Current status </label>
 					<div class="col-sm-7 text-capitalize">
-						<span style="background:#337AB7; border-radius:2px; padding:2px;color:#FFFFFF;"><?php echo $details['doc_status_name']; ?></span>
+						<span style="background:#337AB7; border-radius:2px; padding:2px;color:#FFFFFF;"><?php echo $details['doc_status_name']; ?></span> 
+							&
+							<?php if($details['closed']=='y'){ $txt="Closed"; $cssbg="#D82C2C";} else { $txt="Open"; $cssbg="#178E05"; } ?>
+						<span style="background:<?php echo $cssbg; ?>; border-radius:2px; padding:2px;color:#FFFFFF;">
+							<?php echo $txt; ?>
+						</span>
 					</div>
 				</div>
 				<div class="row">
 					<label class="col-sm-5">Description </label>
 					<div class="col-sm-7 text-capitalize well">
-						<?php if($details['description'] == null ){ echo "---"; } else { echo $details['description']; }?>
+						<?php if($details['description'] == null ){ echo "No description"; } else { echo $details['description']; }?>
 					</div>
 				</div>
+				<!------------------------------->
+				<?php 
+					// Revealing the current document location. Only in Manager Mode.
+					if($_GET['show']=='manager')
+					{ // Display the current location
+				?>
+				<h3>
+					<span class="glyphicon glyphicon-pushpin"></span> <span class="text-muted">Current location</span> 
+				</h3>
+				<address>
+					<?php
+						echo "<strong>".$doc_location['firstname'].' '.$doc_location['lastname'].'</strong><br/> ';
+						echo $doc_location['role_name'].'<br/>';
+						echo $doc_location['email'].'<br/>';
+						echo $doc_location['phone'].'<br/>';
+						} //Endif. Done displaying current location
+					?>
+				</address>
+				<!------------------------------->
 			</div>
 			
 			<!--- UPDATING THE CURRENT STATUS-- ONLY VISIBLE IN RECIEVED MODE-->

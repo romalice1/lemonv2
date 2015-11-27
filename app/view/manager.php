@@ -13,15 +13,7 @@
   <!-- Viewing documents -->
   <?php if($_GET['tab']!='tasks'){ ?>
   <!-- Table -->
-  <table class="table">
-    <thead>
-    	<tr>
-    		<th>#</th>
-	    	<th>Document</th>
-	    	<th>Deadline</th>
-	    	<th>Status</th>
-    	</tr>
-    </thead>
+  <table class="table table-hover table-striped">
     <tbody>
     <?php 	
 	//resultset along with the connection string
@@ -35,12 +27,19 @@
     		<td>
     			<!-- This trigger is controlled by a javascript function in 'app/assets/js/other-scripts.js' -->
     			<!-- The popup modal is writen at the end of index.php ( of this content page) -->
-    			<a style="cursor:pointer;" title="Click for Details" onclick="documentDetails('<?php echo $row['document_id']; ?>');" data-toggle="modal" data-target="#DocumentDetailsModal">
+    			<a style="cursor:pointer;" title="Click for Details" onclick="documentDetails('<?php echo $row['document_id']; ?>', '<?php echo $_GET['view'];?>');" data-toggle="modal" data-target="#DocumentDetailsModal">
     				<span class="glyphicon glyphicon-list-alt"></span> <?php echo $row['doc_type_name']; ?>
     			</a>
     		</td>
-    		<td><?php echo $row['deadline']; ?></td>
-    		<td><?php echo $row['doc_status_name']; ?></td>
+    		<td class="small text-warning" >Exp. <?php echo $row['deadline']; ?></td>
+    		<td>
+    			<?php echo $row['doc_status_name']; ?> 
+    			
+    			<?php if($row['closed']=='y'){ $txt="Closed"; $cssbg="#D82C2C";} else { $txt="Open"; $cssbg="#178E05"; } ?>
+				<span style="background:<?php echo $cssbg; ?>; border-radius:8px 8px 0px 0px; padding:2px;color:#FFFFFF;">
+					<?php echo $txt; ?>
+				</span>
+    		</td>
     	</tr>
     	<?php } //endwhile ?>
     </tbody>
