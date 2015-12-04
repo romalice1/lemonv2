@@ -1,5 +1,5 @@
 <h3>System functions</h3>
-These are system deafult settings. You can not change anything.
+These are system deafult settings. You can not change anything, it's just for your knowledge.
  <!-- Table -->
   <table class="table table-striped">
     <thead>

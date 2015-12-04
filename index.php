@@ -41,7 +41,7 @@ session_start();
 /* Authentication Controller */
 require_once("app/controller/authenticate.php");
 
-/** If the seesion is on continue to home page **/
+/** If the seesion is "on" continue to home page **/
 if( isset( $_SESSION['user_id'] )==true && isset( $_SESSION['role_id'] )==true ){
 	$authenticate->protect();
 }
@@ -66,6 +66,8 @@ if( isset($_POST['login']) && empty($_POST['username'])==false ){
 			$_SESSION['role_id'] = $user['role_id'];
 			$_SESSION['user_name'] = $user['email'];
 			
+			// Set session status to "on" in the DB
+			$authenticate->login_status($conn, $_SESSION['user_id']);
 			header("Location: app/");
 		}
 	}else{
@@ -149,7 +151,7 @@ if( isset($_POST['login']) && empty($_POST['username'])==false ){
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 		<h4 class="modal-title" id="myModalLabel"><span id="bigL">L</span> - Login</h4>
 	      </div>
-	      <form class="form" action="" role="signin" method="POST" >
+	      <form class="form" action="<?php echo $_SERVER['PHP_SELF'];?>" role="signin" method="POST" >
 		      <div class="modal-body">
 				<div class="form-group">
 					<div class="input-group">

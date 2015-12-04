@@ -18,6 +18,10 @@ class Admin{
 	////////////////////////////////
 	// USERS */
 	/////////////////////////////////
+	
+	//**********************
+	// New user
+	//**********************
 	public function new_user($conn, $intranet){
 		// Default user function_id is 3 as 'internal'
 	
@@ -42,12 +46,18 @@ class Admin{
 		}
 	}
 	
+	//**********************
+	// Get all users
+	//**********************
 	public function get_user($conn, $intranet){
-		$sql = "SELECT *, date_format(`last_login`, '%D %M, %Y %r') as `last_login` FROM `user`,`role` WHERE `user`.`role_id`=`role`.`role_id`";
+		$sql = "SELECT *, date_format(`logout_time`, '%D %M, %Y %r') as `last_active` FROM `user`,`role` WHERE `user`.`role_id`=`role`.`role_id`";
 		$result = mysqli_query($conn, $sql);
 		return $result;
 	}
 	
+	//**********************
+	// Get user by ID
+	//**********************
 	public function get_user_byId($conn, $id){
 		$sql = "SELECT `user`.*, `branch`.`branch_name`, `role`.`role_name` FROM `user`,`role`,`branch` 
 			WHERE 
@@ -56,6 +66,9 @@ class Admin{
 		return $user;
 	}
 	
+	//**********************
+	// Update user 
+	//**********************
 	public function update_user($conn, $uid){
 		$branch = $_POST['branch_id'];
 		$role = $_POST['role_id'];
@@ -68,6 +81,9 @@ class Admin{
 		}
 	}
 	
+	//**********************
+	// Update account
+	//**********************
 	public function update_profile($conn, $user_id){
 		$firstname = addslashes($_POST['firstname']);
 		$lastname = addslashes($_POST['lastname']);
@@ -150,16 +166,25 @@ class Admin{
 		}
 	}
 	
+	//**********************
+	// Get roles
+	//**********************
 	public function get_role($conn, $intranet){
 		$sql = "SELECT * FROM `role`";
 		$result = mysqli_query($conn, $sql);
 		return $result;
 	}
 	
+	//**********************
+	// Update role
+	//**********************
 	public function update_role($conn){
 		return 0;
 	}
 	
+	//**********************
+	// Delete role
+	//**********************
 	public function delete_role($conn){
 		return 0;
 	}
@@ -182,16 +207,25 @@ class Admin{
 		}
 	}
 	
+	//**********************
+	// Get status
+	//**********************
 	public function get_status($conn, $intranet){
 		$sql = "SELECT * FROM `document_status`";
 		$result = mysqli_query($conn, $sql);
 		return $result;
 	}
 	
+	//**********************
+	// Update status
+	//**********************
 	public function update_status(){
 		return 0;
 	}
 	
+	//**********************
+	// Delete status
+	//**********************
 	public function delete_status(){
 		return 0;
 	}
@@ -205,10 +239,16 @@ class Admin{
 		return $result;
 	}
 	
+	//**********************
+	// Update function
+	//**********************
 	public function update_function(){
 		return 0;
 	}
 	
+	//**********************
+	// Update function
+	//**********************
 	public function delete_function(){
 		return 0;
 	}
@@ -238,16 +278,25 @@ class Admin{
 		}
 	}
 	
+	//**********************
+	// Get document type
+	//**********************
 	public function get_type($conn, $intranet_id){
 		$sql = "SELECT * FROM `doc_type` WHERE `intranet_id`='$intranet_id'; ";
 		$result = mysqli_query($conn, $sql);
 		return $result;
 	}
 	
+	//**********************
+	// Update document type
+	//**********************
 	public function update_types(){
 		return 0;
 	}
 	
+	//**********************
+	// Delete document type
+	//**********************
 	public function delete_type(){
 		return 0;
 	}
@@ -271,16 +320,25 @@ class Admin{
 		}
 	}
 	
+	//**********************
+	// Get branch
+	//**********************
 	public function get_branch($conn, $intranet){
 		$sql = "SELECT * FROM `branch` WHERE `intranet_id`='$intranet' ";
 		$result = mysqli_query($conn, $sql);
 		return $result;
 	}
 	
+	//**********************
+	// Update branch
+	//**********************
 	public function update_branch(){
 		return 0;
 	}
 	
+	//**********************
+	// Delete branch
+	//**********************
 	public function delete_branch(){
 		return 0;
 	}

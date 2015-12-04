@@ -17,9 +17,9 @@ These are system deafult settings. You can not change anything.
 	while( $row= mysqli_fetch_array( $result ) ){
 		$row_count += 1;
 	?>
-    	<tr class="text-capitalize">
+    	<tr>
     		<td><?php echo $row_count;?></td>
-    		<td><?php echo $row['function_name'];?></td>
+    		<td class="text-capitalize" ><?php echo $row['function_name'];?></td>
     		<td><?php echo $row['function_description'];?></td>
     	</tr>
     	<?php } //endwhile ?>

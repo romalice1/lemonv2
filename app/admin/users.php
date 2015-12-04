@@ -44,15 +44,6 @@ else
 ?>
  <!-- Table -->
   <table class="table table-hover table-striped">
-    <thead>
-    	<tr>
-	    	<th>#</th>
-	    	<th>Names</th>
-	    	<th>Role</th>
-	    	<th>Session</th>
-	    	<th>Action</th>
-    	</tr>
-    </thead>
     <tbody>
 	<?php 	
 	//resultset along with the connection string
@@ -63,13 +54,16 @@ else
 	?>
     	<tr class="text-capitalize">
     		<td><?php echo $row_count;?></td>
-    		<td><?php echo $row['firstname']." ".$row['lastname'];?></td>
-    		<td><?php echo $row['role_name'];?></td>
     		<td>
-    			<?php if($row['session']=='1'):?> 
-    				<span title="Online" alt="Online" class="glyphicon glyphicon-cloud" style='color:#24D828;'></span> 
+    			<?php echo $row['firstname']." ".$row['lastname'];?> <br/>
+    			<span class="text-muted"><?php echo $row['role_name'];?></span>
+    		</td>
+    		<td>
+    			<?php if($row['session']=='1'): ?> 
+    				<span title="Online" alt="Online" class="glyphicon glyphicon-cloud text-success" style='color:#24D828;'></span>
+    				<small>Online
     			<?php else: ?>
-    				<span class="glyphicon glyphicon-cloud"></span> <small class='text-muted'><?php echo $row['last_login']; endif; ?></small>
+    				<span class="glyphicon glyphicon-cloud"></span> <small class='text-muted'>Last active <?php echo $row['logout_time']; endif; ?></small>
     		</td>
     		<td>
     			<a href="?view=admin&job=user_view&uid=<?php echo $row['user_id'];?>" title="Edit" alt="Edit" class="btn btn-link" >
