@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">
-  	<h4><a class="btn" href=""><span id="bigL">L</span> - Administration</h4></a>
+  	<h4><a class="btn" href="?view=admin"><span id="bigL">L</span> - Administration</h4></a>
   </div>
 	<div class="panel-body">
 	<!-- Nav tabs -->

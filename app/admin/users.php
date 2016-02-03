@@ -31,14 +31,12 @@
 	</div>
 </div>
 <!---- VIEW & UPDATE USER -->
-<?php if(isset($_GET['job']))
+<?php if(isset($_GET['job']) && $_GET['job']=='user_edit')
 { 
 	// Display a single user information
 	require("admin/user_update.php");
 } 
 // Done VIEW & UPDATE USER
-
-
 else 
 {//DIsplay all users table 
 ?>
@@ -66,7 +64,7 @@ else
     				<span class="glyphicon glyphicon-cloud"></span> <small class='text-muted'>Last active <?php echo $row['logout_time']; endif; ?></small>
     		</td>
     		<td>
-    			<a href="?view=admin&job=user_view&uid=<?php echo $row['user_id'];?>" title="Edit" alt="Edit" class="btn btn-link" >
+    			<a href="?view=admin&job=user_edit&uid=<?php echo $row['user_id'];?>" title="Edit" alt="Edit" class="btn btn-link" >
     				<span class="glyphicon glyphicon-pencil"></span>
     			</a> 
     		</td>
@@ -77,7 +75,7 @@ else
     </tbody>
   </table>
 <?php 
-} //endif for switching between single user view or all users list 
+} //endif for switching between single user view and all users list 
 ?>
   <!--- USER operations MODALS---->
 

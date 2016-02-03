@@ -179,7 +179,7 @@ class Document{
 	}
 	
 	/////////////////////////////
-	// Get All documents by requested view
+	// Get document by requested view
 	//////////////////////////////
 	public static function get_documents($conn, $view, $user_id){
 		$result = null; // initiating
@@ -214,7 +214,7 @@ class Document{
 		}elseif( $view=='closed' ){
 			
 			// Get all documents #closed by $user_id				
-			$sql = "SELECT b.*, d.*, dt.`doc_type_name`, ds.`doc_status_name`, date_format(`date_closed`, '%D %M %Y') AS date
+			$sql = "SELECT b.*, d.*, dt.`doc_type_name`, ds.`doc_status_name`, date_format(`date_closed`, '%D %M %Y') AS date_closed
 			FROM `document` d,`box` b,`doc_type` dt, `document_status` ds
 			WHERE `doc_receiver_user_id`='$user_id' 
 				AND d.`document_id`= b.`document_id` AND dt.`doc_type_id` = d.`doc_type_id` AND ds.`doc_status_id` = d.`doc_status_id` AND `closed` = 'y'

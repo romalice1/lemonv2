@@ -12,16 +12,6 @@
   -->
   <!-- Table -->
   <table class="table table-striped table-hover">
-    <!--
-    <thead>
-    	<tr>
-    		<th>#</th>
-	    	<th>Document</th>
-	    	<th>Date</th>
-	    	<th>Status</th>
-    	</tr>
-    </thead>
-    -->
     <tbody>
     <?php 	
 	//resultset along with the connection string
@@ -40,7 +30,7 @@
     				<span class="glyphicon glyphicon-list-alt"></span> <?php echo $row['doc_type_name']; ?>
     			</a>
     		</td>
-    		<td class="small"><?php echo $row['date']; ?></td>
+    		<td class="small">Closed on <?php echo $row['date_closed']; ?></td>
     		<td class="text-warning"><?php echo $row['doc_status_name']; ?></td>
     	</tr>
     	<?php } //endwhile ?>

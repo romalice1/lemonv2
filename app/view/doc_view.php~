@@ -31,7 +31,7 @@
 	$details = mysqli_fetch_array( mysqli_query($conn, $sql) );
 	
 	// Geting current doc. location #manager mode only
-	if($_GET['show']=='manager'){
+	if(@$_GET['show']=='manager'){
 		$document_id = $details['document_id'];
 		$sql = "SELECT u.`firstname`, u.`lastname`, u.`email`, u.`phone`, r.`role_name`
 				FROM `box` b, `user` u, `role` r 
@@ -81,7 +81,7 @@ if(isset($alert['success'])):
 				<a class="btn" target="new" href="<?php echo $details['document_path']; ?>"><span class="glyphicon glyphicon-list-alt"></span> Open</a>
 			</div>
 			<!-- Can not forward if document case is closed. -->
-			<?php if($_GET['show']=='closed'){ $css='sr-only';}else{ $css=''; } ?>
+			<?php if(@$_GET['show']=='closed'){ $css='sr-only';}else{ $css=''; } ?>
 			<div class="col-sm-4 <?php echo $css; ?>">
 				<a class="btn"><span class="glyphicon glyphicon-share-alt"></span> Forward</a>
 			</div>

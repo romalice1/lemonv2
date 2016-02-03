@@ -15,38 +15,51 @@
 	</div>
 <?php endif; ?>
 <button class="btn btn-success" style="float:right;" data-toggle="modal" data-target="#NewRoleModal" ><span class="glyphicon glyphicon-plus"></span>New Role</button>
-<!-- Table -->
-  <table class="table table-striped">
-    <thead>
-    	<tr>
-	    	<th>#</th>
-	    	<th>Role name</th>
-	    	<th>Description</th>
-	    	<th>Action</th>
-    	</tr>
-    </thead>
-    <tbody>
-	<?php 
-	$row_count = 0; //initializing row count
-	while( $row= mysqli_fetch_array( $result ) ){
-		$row_count += 1;
-	?>
-    	<tr>
-    		<td><?php echo $row_count;?></td>
-    		<td><?php echo $row['role_name'];?></td>
-    		<td><?php echo $row['role_description'];?></td>
-    		<td>
-    			<a href="?view=admin&job=status_view&uid=<?php echo $row['user_id'];?>" title="Edit" alt="Edit" class="btn btn-link" >
-    				<span class="glyphicon glyphicon-pencil"></span>
-    			</a> 
-    		</td>
-    	</tr>
-    	<?php } //endwhile ?>
-    </tbody>
-  </table>
 
+<!---- VIEW & UPDATE ROLE -->
+<?php if(isset($_GET['job']) && $_GET['job']=='role_edit')
+{ 
+	// Display a single user information
+	//require("admin/role_update.php");
+	echo "Role edit";
+} 
+// Done VIEW & UPDATE USER
+else
+{ ?>
+	<!-- Table -->
+	  <table class="table table-striped">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Role name</th>
+				<th>Description</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php 
+		$row_count = 0; //initializing row count
+		while( $row= mysqli_fetch_array( $result ) ){
+			$row_count += 1;
+		?>
+			<tr>
+				<td><?php echo $row_count;?></td>
+				<td><?php echo $row['role_name'];?></td>
+				<td><?php echo $row['role_description'];?></td>
+				<td>
+					<a href="?view=admin&job=role_edit&id=<?php echo $row['role_id'];?>" title="Edit" alt="Edit" class="btn btn-link" >
+						<span class="glyphicon glyphicon-pencil"></span>
+					</a> 
+				</td>
+			</tr>
+			<?php } //endwhile ?>
+		</tbody>
+	  </table>
+<?php 
+ } //endif for switching between single role view and all roles list 
+?>
 
- <!-- New status Modal -->
+ <!-- New role Modal -->
 <div class="modal fade" id="NewRoleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
