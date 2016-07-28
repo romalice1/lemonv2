@@ -1,5 +1,5 @@
 <?php
-/***** A file to take care of all ADMINISTRATION operations *********/
+/***** A file to take care of all ADMINISTRATIVE operations *********/
 /** Author Romalice Ishimwe **/
 
 /* The $conn variable comes from app/init.php called from header.php */
@@ -50,7 +50,7 @@ class Admin{
 	// Get all users
 	//**********************
 	public function get_user($conn, $intranet){
-		$sql = "SELECT *, date_format(`logout_n`, '%D %M, %Y %r') as `last_login` FROM `user`,`role` WHERE `user`.`role_id`=`role`.`role_id`";
+		$sql = "SELECT *, date_format(`logout_time`, '%D %M, %Y %r') as `last_active` FROM `user`,`role` WHERE `user`.`role_id`=`role`.`role_id`";
 		$result = mysqli_query($conn, $sql);
 		return $result;
 	}
@@ -241,17 +241,19 @@ class Admin{
 	
 	//**********************
 	// Update function
-	//**********************
+	/**********************
 	public function update_function(){
 		return 0;
 	}
+	*/
 	
 	//**********************
 	// Update function
-	//**********************
+	/**********************
 	public function delete_function(){
 		return 0;
 	}
+	*/
 	
 	/////////////////////////////
 	// Document types  */

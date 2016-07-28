@@ -44,7 +44,7 @@
   <div class="panel-heading">Symbols & Meaning</div>
   <div class="panel-body">
     <p class="text-muted">
-    	<span class="glyphicon glyphicon-warning-sign"></span> Reminder <br/>
+    	<span class="glyphicon glyphicon-warning-sign"></span> Deadline soon <br/>
     	<span class="glyphicon glyphicon-warning-sign text-danger"></span> Deadline expired</br>
     </p>
   </div>

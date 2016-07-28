@@ -6,10 +6,6 @@
 	color:#fff;
 	height:30px;
 }
-.alert{
-	position:fixed;
-	margin-top:-210px;
-}
 .btn{
 	border-radius:3px 20px 20px 3px;
 }
@@ -53,6 +49,6 @@
 	margin-bottom:0px;
 	margin-top:5em;
 	border-radius:0px;
-	padding-top:2em;
-	padding-bottom:2em;
+	padding-top: 5px;
+	padding-bottom:5px;
 }

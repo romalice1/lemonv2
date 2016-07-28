@@ -203,7 +203,7 @@ if(isset($alert['success'])):
 						<p/>
 						<div class="form-group">
 							<div class="col-sm-offset-5 col-sm-7 text-left">
-								<button class="btn btn-success" onclick="return confirm('Are you sure to changes the status of this document? '); " ><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+								<button class="btn btn-success" onclick="return confirm('Are you sure you want to change the status of this document? '); " ><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 							</div>
 						</div>
 					</form>

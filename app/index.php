@@ -18,7 +18,6 @@ require_once("controller/manager.php");
 require_once("controller/task.php");
 require_once("controller/admin.php");
 
-
 /** If the seesion is off, go back to login page **/
 if( isset( $_SESSION['user_id'] )==false && isset( $_SESSION['role_id'] )==false ){
 	$authenticate->protect();

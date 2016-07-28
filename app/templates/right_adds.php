@@ -4,7 +4,7 @@
   <div class="panel-body">
     <p>
     	<a href="#new_task" class='btn' data-toggle="modal" data-target="#myModal">New <span class="badge">0</span></a>
-    	<a class='btn' data-toggle="modal" data-target="#myModal">Started <span class="badge">0</span></a>
+    	<a class='btn' data-toggle="modal" data-target="#myModal">Pending <span class="badge">0</span></a>
     	<a class='btn' data-toggle="modal" data-target="#myModal">Finished <span class="badge">0</span></a>
     </p>
   </div>

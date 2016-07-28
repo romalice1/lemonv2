@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">
-  	<h4><span id="bigL">L</span> - Management</h4>
+  	<h4><span id="bigL">L</span> - Management and Auditing</h4>
   </div>
   <div class="panel-body">
 	<ul class="nav nav-pills text-right">

@@ -39,7 +39,7 @@
 	<div class="form-group">
 		<label for="inputPhone" class="col-sm-2 control-label">Role*</label>
 		<div class="col-sm-10">
-			<select name="role" class="form-control">
+			<select name="role" id="new_user_role" class="form-control" onchange="set_user_function();">
 				<?php 
 					$role = $admin->get_role($conn);
 					while($row = mysqli_fetch_array($role)):
@@ -49,6 +49,8 @@
 				<option value="<?php echo $row['role_id'];?>"><?php echo $row['role_name'];?></option>
 				<?php endif; endwhile; ?>
 			</select>
+			<!-- HIDDEN INPUT TO SUPPORT FUNCTION INPUT ACCORDING TO SELECTED ROLE-->
+			<input type='hidden' id="user_function" name='function' value=''>
 		</div>
 	</div>
 	<div class="form-group">

@@ -136,7 +136,7 @@ if(isset($alert['success'])):
 				<!------------------------------->
 				<?php 
 					// Revealing the current document location. Only in Manager Mode.
-					if($_GET['show']=='manager')
+					if(@$_GET['show']=='manager')
 					{ // Display the current location
 				?>
 				<h3>
@@ -203,7 +203,7 @@ if(isset($alert['success'])):
 						<p/>
 						<div class="form-group">
 							<div class="col-sm-offset-5 col-sm-7 text-left">
-								<button class="btn btn-success" onclick="return confirm('Are you sure to changes the status of this document? '); " ><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
+								<button class="btn btn-success" onclick="return confirm('Are you sure to change the status of this document? '); " ><span class="glyphicon glyphicon-floppy-disk"></span> Save</button>
 							</div>
 						</div>
 					</form>

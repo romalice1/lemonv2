@@ -1,5 +1,5 @@
 <?php
-/***** A file to take care of all ADMINISTRATION operations *********/
+/***** A file to take care of all ADMINISTRATIVE operations *********/
 /** Author Romalice Ishimwe **/
 
 /* The $conn variable comes from app/init.php called from header.php */
@@ -23,7 +23,6 @@ class Admin{
 	// New user
 	//**********************
 	public function new_user($conn, $intranet){
-		// Default user function_id is 3 as 'internal'
 	
 		$firstname = addslashes($_POST['firstname']);
 		$lastname = addslashes($_POST['lastname']);
@@ -241,17 +240,19 @@ class Admin{
 	
 	//**********************
 	// Update function
-	//**********************
+	/**********************
 	public function update_function(){
 		return 0;
 	}
+	*/
 	
 	//**********************
 	// Update function
-	//**********************
+	/**********************
 	public function delete_function(){
 		return 0;
 	}
+	*/
 	
 	/////////////////////////////
 	// Document types  */

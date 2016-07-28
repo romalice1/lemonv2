@@ -6,9 +6,9 @@ require_once("app/init.php");
 /* Initializing lemon */
 $conn = lemon_init();
 
-///////////////////////////////
+/////////////////////////////////
 // Get intranet details
-/////////////////////////////
+////////////////////////////////
 function get_intranet($conn){
 	$result = mysqli_query($conn, "SELECT * FROM `intranet`");
 	$intranet = mysqli_fetch_array($result);
@@ -64,7 +64,15 @@ if( isset($_POST['login']) && empty($_POST['username'])==false ){
 			$_SESSION['user_id'] = $user['user_id'];
 			$_SESSION['user_image'] = $user['img_path'];
 			$_SESSION['role_id'] = $user['role_id'];
+			$_SESSION['function_id'] = $user['function_id'];
 			$_SESSION['user_name'] = $user['email'];
+			
+			/* Description of User Functions /
+			/								/
+			/	1	System administrator	/
+			/	2	System Auditor/Manager	/
+			/								/
+			/	****************************/
 			
 			// Set session status to "on" in the DB
 			$authenticate->login_status($conn, $_SESSION['user_id']);
@@ -246,7 +254,7 @@ if( isset($_POST['login']) && empty($_POST['username'])==false ){
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="client_number" class="col-sm-3 control-label">Client Number</label>
+							<label for="client_number" class="col-sm-3 control-label">Roll Number</label>
 							<div class="col-sm-9">
 								<input type="text" name="client_number" class="form-control"  placeholder="If any...">
 							</div>
@@ -326,7 +334,7 @@ if( isset($_POST['login']) && empty($_POST['username'])==false ){
 					Paperless Document Processing
 				</p>
 				<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#SendDocModal">
-					<span class="glyphicon glyphicon-send"></span> Submit your document now
+					<span class="glyphicon glyphicon-send"></span> Request a document
 				</button>
 			</div>
 		      </div>
@@ -341,7 +349,7 @@ if( isset($_POST['login']) && empty($_POST['username'])==false ){
 					Save money with a paperless technology
 				</p>
 				<button class="btn btn-info btn-lg" data-toggle="modal" data-target="#SendDocModal">
-					<span class="glyphicon glyphicon-send"></span> Submit your document now
+					<span class="glyphicon glyphicon-send"></span> Request a document
 				</button>
 			</div>
 		      </div>
@@ -356,7 +364,7 @@ if( isset($_POST['login']) && empty($_POST['username'])==false ){
 					Access your documents anytime anywhere
 				</p>
 				<button class="btn btn-info btn-lg" data-toggle="modal" data-target="#SendDocModal">
-					<span class="glyphicon glyphicon-send"></span> Submit your document now
+					<span class="glyphicon glyphicon-send"></span> Request a document
 				</button>
 			</div>
 		      </div>
@@ -375,6 +383,9 @@ if( isset($_POST['login']) && empty($_POST['username'])==false ){
 		  </a>
 		</div>
 	</div>
-	<?php require("app/templates/footer.php");?>
+	<!-- <?php require("app/templates/footer.php");?> -->
+	<div class="container text-center">
+		Powered by Wavysoft &copy; 2016.
+	</div>
 	</body>
 </html>

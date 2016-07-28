@@ -70,3 +70,25 @@ function updateStatus( doc_id ){
 	return false;
 }
 
+/////////////////////////////////////////
+// Roles & functions - inputs matching
+////////////////////////////////////////
+function set_user_function(){
+	var new_user_role = _("new_user_role").value;
+	
+	/* Set new user function according to role input */
+	if( new_user_role == '001'){
+		//User is admin
+		_("user_function").value = "1";
+	}else if( new_user_role == '002'){
+		//User is manager
+		_("user_function").value = "2";
+	}else{
+		//User is just a normal user
+		_("user_function").value= "3";
+	}
+}
+
+
+
+

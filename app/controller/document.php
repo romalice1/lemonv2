@@ -58,7 +58,7 @@ class Document{
 				VALUES ('$box_id', '$doc_id', '$sender', '$receiver','$description','$intranet_id') ";
 				
 				if(mysqli_query($conn, $sql)){
-					$alert['success'] = "Successfully submittedsss ".$fileName = $_FILES['new_doc_file']['name'];
+					$alert['success'] = "Your document was successfully submitted ".$fileName = $_FILES['new_doc_file']['name'];
 				}else{
 					$alert['fail'] = "Unable to complete the operation";
 				}				
